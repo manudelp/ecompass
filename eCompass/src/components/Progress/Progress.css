@@ -1,7 +1,7 @@
 .progress {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
     align-items: center;
 }
 
@@ -16,14 +16,15 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .amountProgress {
+    position: absolute;
     font-size: 1.5em;
     margin: 20px;
     text-align: center;
     color: var(--dark);
-
 }
 
 .progressPercentage {

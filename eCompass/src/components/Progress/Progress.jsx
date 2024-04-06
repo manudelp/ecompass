@@ -6,8 +6,13 @@ function Progress(props) {
 
     useEffect(() => {
         const estimatedAmountPercentage = (props.totalAmount / props.estimatedAmount) * 100;
+
         var progressBarFill = document.querySelector(".progressBarFill");
         progressBarFill.style.width = estimatedAmountPercentage + "%";
+
+        var amountProgress = document.querySelector(".amountProgress");
+        amountProgress.style.width = estimatedAmountPercentage + "%";
+
         setProgressWidth(estimatedAmountPercentage);
     }, [props.estimatedAmount, props.totalAmount]);
 
@@ -15,7 +20,7 @@ function Progress(props) {
         <div className="progress">
             <h2 className="progressTitle">{props.name}</h2>
             <div className="progressGraph">
-                <h2 className="amountProgress">{props.totalAmount}</h2>
+                <h2 className="amountProgress">${props.totalAmount}</h2>
                 <div className="progressBar">
                     <div className="progressBarFill"></div>
                 </div>
