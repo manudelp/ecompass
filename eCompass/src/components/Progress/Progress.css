@@ -1,6 +1,7 @@
 .progress {
     width: 100%;
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: 2fr 3fr .5fr 1fr;
     gap: .5rem;
     align-items: center;
@@ -16,28 +17,42 @@
 }
 
 .progressTitle {
+=======
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+}
+
+.progressTitle {
+    font-size: 2em;
+    margin: 20px;
+>>>>>>> 4e71da449f615ce64ec403d26d015177c275d521
     text-align: center;
     color: var(--light);
 }
 
-.progressGraph {
+.progessGraph {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .amountProgress {
     position: absolute;
+<<<<<<< HEAD
     top: 0;
     left: 0;
     font-size: .8rem;
     margin: 20px 0;
+=======
+    font-size: 1.5em;
+    margin: 20px;
+>>>>>>> 4e71da449f615ce64ec403d26d015177c275d521
     text-align: center;
-    color: var(--secondary);
+    color: var(--dark);
 }
 
+<<<<<<< HEAD
 .amountTotal {
     position: absolute;
     top: 0;
@@ -52,6 +67,11 @@
 .progressPercentage,
 .timeLeft {
     font-size: 0.8rem;
+=======
+.progressPercentage {
+    font-size: 1.5em;
+    margin: 20px;
+>>>>>>> 4e71da449f615ce64ec403d26d015177c275d521
     text-align: center;
     color: var(--light);
 }
@@ -65,9 +85,9 @@
 }
 
 .progressBarFill {
-    width: 0%;
+    width: 50%;
     height: 100%;
-    background: linear-gradient(to right, var(--dark), var(--secondary));
+    background-color: var(--dark);
     border-radius: 1rem;
     transition: width 1s ease-in-out;
 }
