@@ -1,0 +1,45 @@
+.header {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--dark);
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header * {
+    transition: .25s ease-in-out;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.header h3 {
+    font-size: 1.6rem;
+}
+
+.createAccountButtons {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
+.header button {
+    background-color: transparent;
+    color: var(--light);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.header button:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+}

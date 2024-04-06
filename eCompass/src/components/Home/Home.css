@@ -1,0 +1,27 @@
+.home {
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0 2rem;
+}
+
+.welcome {
+    font-size: 3em;
+    margin: 20px;
+    text-align: center;
+}
+
+.data {
+    width: 60%;
+    height: calc(100vh - 200px);
+    background-color: var(--primary);
+    border-radius: 2rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
