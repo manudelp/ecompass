@@ -2,3 +2,6 @@ Flask
 Flask-Cors
 Flask-MySQL
 Flask-MySQLdb
+googlefinance
+requests
+
