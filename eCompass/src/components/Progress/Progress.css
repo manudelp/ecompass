@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.progress * {
+    transition: .25s ease-in-out;
+}
+
 .progressTitle {
     font-size: 2em;
     margin: 20px;
@@ -12,17 +16,20 @@
     color: var(--light);
 }
 
-.progessGraph {
+.progressGraph {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .amountProgress {
     position: absolute;
+    top: 0;
+    left: 0;
     font-size: 1.5em;
-    margin: 20px;
+    margin: 20px 0;
     text-align: center;
     color: var(--dark);
 }
@@ -43,7 +50,7 @@
 }
 
 .progressBarFill {
-    width: 50%;
+    width: 0%;
     height: 100%;
     background-color: var(--dark);
     border-radius: 1rem;

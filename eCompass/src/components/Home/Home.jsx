@@ -12,6 +12,7 @@ function Home(props) {
         </div>
       <div className="data">
         <Progress name="Auto" totalAmount="12300" estimatedAmount="21000" estimatedTime="320"/>
+        <Progress name="PC Gamer" totalAmount="1527" estimatedAmount="2430" estimatedTime="15"/>
       </div>
     </main>
   );
