@@ -1,36 +1,42 @@
-from ..models.user import User
-from ..models.planning import Planning
-from ..models.mensual import Mensual
+import sys
+sys.path.append('../')
 
-def get_user(mysql):
+from models.user import *
+from models.planning import *
+from models.mensual import *
+
+def get_user_repo(mysql):
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM user")
     rv = cur.fetchall()
     user = User(rv[0][0], rv[0][1] + " " + rv[0][2], rv[0][3], rv[0][4], rv[0][5])
     return user
 
-def get_plannings(mysql):
+def get_plannings_repo(mysql):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM planning")
+    cur.execute("SELECT * FROM plan")
     rv = cur.fetchall()
     plannings = []
     for i in rv:
-        plannings.append(Planning(i[1], i[2], i[3], i[4], i[5]))
+        print(i)
+        plannings.append(Planning(i[0], i[1], i[2], i[3], i[4], i[5]))
     return plannings
 
-def get_mensuals(mysql):
+def get_mensuals_repo(mysql):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM mensual")
+    cur.execute("SELECT * FROM payment")
     rv = cur.fetchall()
     mensuals = []
     for i in rv:
-        mensuals.append(Mensual(i[1], i[2], i[3]))
+        mensuals.append(Mensual(i[0], i[1], i[2], i[4]))
     return mensuals
 
 def save_user(mysql, user):
     cur = mysql.connection.cursor()
-    update = "UPDATE user SET name=%s, unassignedSavings=%d, totalSavings=%d, estimatedMonthlySavings=%d WHERE id=%d" % (user.name, int(user.save), int(user.saveTotal), int(user.mensualSaveEstimated), int(user.id))
+    update = "UPDATE user SET unassignedSavings=%d, totalSavings=%d, estimatedMonthlySavings=%d WHERE idUser=%d" % (int(user.save), int(user.saveTotal), int(user.mensualSaveEstimated), int(user.id))
+    print(update)
     cur.execute(update)
+    mysql.connection.commit()
 
 def save_planning(mysql, planning):
     cur = mysql.connection.cursor()

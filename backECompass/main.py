@@ -29,20 +29,20 @@ def hello_world():
 @app.route('/user')
 @cross_origin()
 def get_user():
-    user = get_user(mysql)
+    user = get_user_repo(mysql)
     return json.dumps(user.__dict__)
 
 @app.route('/plannings')
 @cross_origin()
 def get_planning():
-    plannings = get_plannings(mysql)
+    plannings = get_plannings_repo(mysql)
     plannings = [planning.__dict__ for planning in plannings]
     return json.dumps(plannings)
 
 @app.route('/mensual')
 @cross_origin()
 def get_mensual():
-    mensuals = get_mensuals(mysql)
+    mensuals = get_mensuals_repo(mysql)
     mensuals = [mensual.__dict__ for mensual in mensuals]
     return json.dumps(mensuals)
 
@@ -53,7 +53,7 @@ def post_user():
     data = request.json
     user = User(data['id'], "", data['save'], data['saveTotal'], data['mensualSaveEstimated'])
     #Get old user data
-    oldUser = get_user(mysql)
+    oldUser = get_user_repo(mysql)
     user.name = oldUser.name
     #Update user data
     save_user(mysql, user)
@@ -67,9 +67,9 @@ def post_planning():
     data = request.json
     planningToInsert = Planning(0, data['name'], data['saves'], data['savesAcu'], data['dateEnd'], data['cost'])
     #Get user data
-    user = get_user(mysql)
+    user = get_user_repo(mysql)
     #Get all plannings
-    plannings = get_plannings(mysql)
+    plannings = get_plannings_repo(mysql)
     #Calculate total saves
     totalSaves = 0
     for planning in plannings:
