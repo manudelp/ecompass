@@ -4,30 +4,36 @@ import './Home.css';
 
 
 function Home() {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(
+    {
+      name: '',
+      save: 0,
+      saveTotal: 0,
+      mensualSaveEstimated: 0
+    }
+  );
 
   useEffect(() => {
     fetch('http://10.7.18.5:5000/user')
       .then(response => response.json())
       .then(data => {
-        const { id, name, save, saveTotal, mensualSaveEstimated } = data;
-        setUserData({ id, name, save, saveTotal, mensualSaveEstimated });
+        setUserData(data);
       })
       .catch(error => {
         console.error('Error fetching user data:', error);
       });
   }, []);
 
-
   return (
     <div className='home'>
         <div className="upperSection">
-            <h1 className='welcome'>Welcome back, <strong>{userData.name}</strong>!</h1>
+            <h1 className='welcome'>Welcome back, {userData.name}!</h1>
             <div className="userInfo">
-              <h4 className="userSavings">Free savings: ${userData.save}</h4>
-              <h4 className="userSavings">Total savings: ${userData.saveTotal}</h4>
-              <h4 className="userSavings">Monthly savings: ${userData.mensualSaveEstimated}</h4>
+                <h4>Free savings: ${userData.save}</h4>
+                <h4>Total savings: ${userData.saveTotal}</h4>
+                <h4>Monthly savings: ${userData.mensualSaveEstimated}</h4>
             </div>
+            <h4 className='account'>Account</h4>
         </div>
         <div className="main">
           <div className="data">
