@@ -18,13 +18,11 @@ function Home() {
       });
   }, []);
 
-  var userName = userData ? userData.name : '';
-
 
   return (
     <div className='home'>
         <div className="upperSection">
-            <h1 className='welcome'>Welcome back, <strong>{userName}</strong>!</h1>
+            <h1 className='welcome'>Welcome back, <strong>{userData.name}</strong>!</h1>
             <div className="userInfo">
               <h4 className="userSavings">Free savings: ${userData.save}</h4>
               <h4 className="userSavings">Total savings: ${userData.saveTotal}</h4>
