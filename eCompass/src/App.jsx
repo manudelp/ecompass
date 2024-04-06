@@ -7,10 +7,9 @@ function App() {
   return (
     <>
       <Header />
-      <Home name='John Doe' />
+      <Home />
     </>
   )
 }
-    
 
 export default App

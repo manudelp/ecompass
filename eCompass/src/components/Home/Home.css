@@ -7,21 +7,72 @@
     padding: 0 2rem;
 }
 
+.upperSection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .welcome {
-    font-size: 3em;
     margin: 20px;
     text-align: center;
 }
 
+.main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.sections {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.progressCategoryTitle {
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.selectedCategory {
+    width: calc(100% / 4);
+    height: 2px;
+    background-color: var(--light);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
 .data {
-    width: 60%;
+    width: 100%;
     height: calc(100vh - 200px);
     background-color: var(--primary);
     border-radius: 2rem;
-    padding: 1rem;
+    padding: 2rem;
 
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
+}
+
+.createPlan {
+    width: 100%;
+    height: calc(100vh - 200px);
+    background-color: var(--light);
+    border: 2px solid var(--primary);
+    border-radius: 2rem;
+    padding: 2rem;
 }

@@ -6,28 +6,49 @@ function Progress(props) {
 
     useEffect(() => {
         const estimatedAmountPercentage = (props.totalAmount / props.estimatedAmount) * 100;
-
-        var progressBarFill = document.querySelector(".progressBarFill");
-        progressBarFill.style.width = estimatedAmountPercentage + "%";
-
-        var amountProgress = document.querySelector(".amountProgress");
-        amountProgress.style.width = estimatedAmountPercentage + "%";
-
         setProgressWidth(estimatedAmountPercentage);
     }, [props.estimatedAmount, props.totalAmount]);
+
+    var timeLeft = props.estimatedEndDate;
+    var timeLeftString = convertDays(timeLeft);
 
     return (
         <div className="progress">
             <h2 className="progressTitle">{props.name}</h2>
             <div className="progressGraph">
-                <h2 className="amountProgress">${props.totalAmount}</h2>
+                <h2 className="amountProgress" style={{width: `${progressWidth}%`}}>${props.totalAmount}</h2>
                 <div className="progressBar">
-                    <div className="progressBarFill"></div>
+                    <div className="progressBarFill" style={{width: `${progressWidth}%`}}></div>
                 </div>
             </div>
             <h2 className="progressPercentage">{Math.floor(progressWidth)}%</h2>
+            <h2 className="timeLeft">{timeLeftString}</h2>
         </div>
     );
+
+    function convertDays(time){
+        let timeString = "";
+
+        const today = new Date();
+        const endDate = new Date(time);
+        const timeDifference = endDate - today;
+        const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+        const yearsDifference = Math.floor(daysDifference / 365);
+        const monthsDifference = Math.floor((daysDifference % 365) / 30);
+
+        if(yearsDifference > 0){
+            timeString = `${yearsDifference} years`;
+        }
+        else if(monthsDifference > 0){
+            timeString = `${monthsDifference} months`;
+        }
+        else{
+            timeString = "Less than a month";
+        }
+
+        return timeString;
+    }
 }
+
 
 export default Progress;

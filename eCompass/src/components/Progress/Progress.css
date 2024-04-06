@@ -1,8 +1,9 @@
 .progress {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 3fr .5fr 1fr;
     align-items: center;
+    margin: 1rem 0;
 }
 
 .progress * {
@@ -11,7 +12,6 @@
 
 .progressTitle {
     font-size: 2em;
-    margin: 20px;
     text-align: center;
     color: var(--light);
 }
@@ -31,12 +31,12 @@
     font-size: 1.5em;
     margin: 20px 0;
     text-align: center;
-    color: var(--dark);
+    color: var(--secondary);
 }
 
-.progressPercentage {
+.progressPercentage,
+.timeLeft {
     font-size: 1.5em;
-    margin: 20px;
     text-align: center;
     color: var(--light);
 }
@@ -52,7 +52,7 @@
 .progressBarFill {
     width: 0%;
     height: 100%;
-    background-color: var(--dark);
+    background: linear-gradient(to right, var(--dark), var(--secondary));
     border-radius: 1rem;
     transition: width 1s ease-in-out;
 }
