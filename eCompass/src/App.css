@@ -3,10 +3,10 @@
   --sub: 'Caudex', serif;
   --text: 'Montserrat Alternates', sans-serif;
 
-  --primary: #f26a2e;
-  --secondary: #29335C;
-  --dark: #333;
-  --light: #f4f4f4;
+  --primary: #76ABAE;
+  --secondary: #222831;
+  --dark: #31363F;
+  --light: #EEEEEE;
   
 }
 
@@ -67,4 +67,15 @@ h5 {
 
 h6 {
   font-size: 0.8rem;
+}
+
+.userAccount {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.userAccount img {
+  width: 36px;
+  border-radius: 50%;
 }

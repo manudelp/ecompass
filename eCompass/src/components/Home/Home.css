@@ -25,13 +25,23 @@
     gap: 1rem;
 }
 
-.account {
-    cursor: pointer;
+.currencySelect {
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: var(--title);
+    color: var(--light);
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    transition: .25s ease-in-out;
 }
 
-.account:hover {
-    color: var(--secondary);
-    text-decoration: underline;
+.currencySelect:hover {
+    border: 2px solid var(--primary);
+    background-color: var(--light);
+    color: var(--dark);
+    cursor: pointer;
 }
 
 .main {
@@ -41,47 +51,145 @@
     gap: 2rem;
 }
 
-.sections {
-    width: 100%;
+.createPlan {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba(244, 244, 244, 0.762);
+    border-radius: 50%;
+    backdrop-filter: blur(2px);
+    border: 2px solid var(--primary);
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    position: relative;
+    justify-content: center;
+    place-items: center;
+    transition: .25s ease-in-out;
+    cursor: pointer;
 }
 
-.progressCategoryTitle {
-    color: var(--light);
-    margin-bottom: 1rem;
+.createPlan h4 {
+    font-size: 0;
+    transition: .25s ease-in-out;
 }
 
-.selectedCategory {
-    width: calc(100% / 4);
-    height: 2px;
-    background-color: var(--light);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-
-.data {
-    width: 100%;
-    height: calc(100vh - 200px);
-    background-color: var(--primary);
+.createPlan:hover {
+    width: 200px;
     border-radius: 2rem;
-    padding: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
 }
 
-.createPlan {
-    width: 100%;
-    height: calc(100vh - 200px);
+.createPlan:hover h4 {
+    font-size: 1.2rem;
+}
+
+
+.planModal {
+    width: 60%;
+    height: 60%;
+
+    z-index: 1;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;   
     background-color: var(--light);
     border: 2px solid var(--primary);
     border-radius: 2rem;
     padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s ease-in-out;
 }
+
+.planModalBackdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s ease-in-out;
+}
+
+.closePlanModal {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--light);
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: .25s ease-in-out;
+}
+
+.closePlanModal:hover {
+    background-color: var(--primary);
+}
+
+.closePlanModal:hover svg {
+    stroke: var(--light);
+}
+
+.planModalBody form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    gap: 1rem;
+}
+
+.formItem {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.planModalBody form label {
+    font-size: 1rem;
+    font-family: var(--title);
+    color: var(--dark);
+}
+
+.planModalBody form input {
+    border: none;
+    border-radius: 1rem;
+    padding: .5rem;
+    font-size: 1rem;
+    font-family: var(--title);
+    color: var(--dark);
+    background-color: var(--light);
+    border: 2px solid var(--primary);
+    transition: .25s ease-in-out;
+}
+
+.planModalBody form button {
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: var(--title);
+    color: var(--light);
+    background-color: var(--primary);
+    transition: .25s ease-in-out;
+    cursor: pointer;
+
+}
+
+.currentPlans {
+    width: 50%;
+} 

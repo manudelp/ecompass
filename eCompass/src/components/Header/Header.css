@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 2rem;
     background-color: var(--dark);
     color: var(--light);
     display: flex;

@@ -14,9 +14,10 @@ function Progress(props) {
 
     return (
         <div className="progress">
-            <h2 className="progressTitle">{props.name}</h2>
+            <h4 className="progressTitle">{props.name}</h4>
             <div className="progressGraph">
                 <h2 className="amountProgress" style={{width: `${progressWidth}%`}}>${props.totalAmount}</h2>
+                <h2 className="amountTotal">${props.estimatedAmount}</h2>
                 <div className="progressBar">
                     <div className="progressBarFill" style={{width: `${progressWidth}%`}}></div>
                 </div>
@@ -36,13 +37,13 @@ function Progress(props) {
         const yearsDifference = Math.floor(daysDifference / 365);
         const monthsDifference = Math.floor((daysDifference % 365) / 30);
 
-        if(yearsDifference > 0){
+        if (yearsDifference >= 5) {
+            timeString = "+5 years";
+        } else if(yearsDifference > 0){
             timeString = `${yearsDifference} years`;
-        }
-        else if(monthsDifference > 0){
+        } else if(monthsDifference > 0){
             timeString = `${monthsDifference} months`;
-        }
-        else{
+        } else{
             timeString = "Less than a month";
         }
 
